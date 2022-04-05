@@ -10,7 +10,7 @@ export class ApiService {
   
   public username: string = '';
   public password: string = '';
-  public urlLocal:string = 'http://e6e3-94-189-237-73.ngrok.io';  
+  public urlLocal:string = 'http://5318-94-189-237-73.ngrok.io';  
 
   constructor(private http: HttpClient) {}
 
