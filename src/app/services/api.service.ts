@@ -15,14 +15,14 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
    getStatus(){
-      let url="http://b576-94-189-237-73.ngrok.io/getStatus"
+      let url="http://c796-94-189-237-73.ngrok.io/getStatus"
     
       return this.http.get(url, { headers: { authorization: this.createBasicAuthToken(this.username, this.password) }})
 
     }
 
     login(username: string, password: string) {
-      return this.http.get("http://b576-94-189-237-73.ngrok.io/login",
+      return this.http.get("http://c796-94-189-237-73.ngrok.io/login",
         { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
           sessionStorage.setItem('loggedIn', username)
           this.username = username;
@@ -34,6 +34,12 @@ export class ApiService {
 
     callShutdown(){
       let url="http://b576-94-189-237-73.ngrok.io/shutdown"
+      console.log("called")
+      return this.http.get(url);
+
+    }
+    callMonkey(){
+      let url="http://b576-94-189-237-73.ngrok.io/monkey"
       console.log("called")
       return this.http.get(url);
 
