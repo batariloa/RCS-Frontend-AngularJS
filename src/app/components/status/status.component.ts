@@ -31,7 +31,7 @@ export class StatusComponent implements OnInit {
       })  
   }
 
-monkey() {
+callMonkey() {
     this.api.callMonkey().subscribe((data:any) =>{
       console.warn(data)
     })  
