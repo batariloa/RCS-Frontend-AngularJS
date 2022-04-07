@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ApiService } from './services/api.service';
 
 @Component({
@@ -7,7 +9,8 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-constructor(){
-  
+constructor(private router:Router){
+    
+  this.router.navigate(['login']);
 }
 }
