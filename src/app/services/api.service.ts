@@ -10,7 +10,7 @@ export class ApiService {
   
   public username: string = '';
   public password: string = '';
-  public urlLocal:string = 'http://94.189.234.3:8080';  
+  public urlLocal:string = 'https://94.189.234.3:8080';  
 
   constructor(private http: HttpClient) {}
 
