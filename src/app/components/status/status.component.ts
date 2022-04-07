@@ -11,6 +11,8 @@ export class StatusComponent implements OnInit {
 
   statusString:String = "";
   statusDate:String = "";
+command:string = "";
+torrent:string = "";
   title = 'RemoteStatus';
   constructor(public api:ApiService, route:ActivatedRoute){
     this.api.getStatus().subscribe((data:any) => {
@@ -37,4 +39,13 @@ callMonkey() {
     })  
 }
 
+
+callCommand() {
+  this.api.callCommand(this.command).subscribe();
+}
+
+
+callTorrent() {
+  this.api.callTorrent(this.torrent).subscribe();
+}
 }

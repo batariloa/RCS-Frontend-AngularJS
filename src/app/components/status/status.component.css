@@ -12,7 +12,7 @@ h1{
   font-weight: normal;
 }
 
-button{
+.redBtn{
   background: none repeat scroll 0 0 #CB4E4E;
   border-radius: 100px;
   box-shadow: 0 8px #AB3C3C;

@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head>
 
     <body>
-<div class="card" style="margin: 0 auto; background-color: gray; height:700px; width:500px;">
+<div class="card" style="margin: 0 auto; background-color: gray; height:800px; width:500px;">
 
 
 
@@ -17,14 +17,31 @@
 <h1> {{statusString}} </h1>
 <h1> {{statusDate}} </h1>
 <div style="margin:0 auto">
-<button (click)="callShutdown()" id="error">OFF</button>
+<button  class="redBtn" (click)="callShutdown()" id="error">OFF</button>
 
 </div>
 
 <div style="margin:0 auto">
-    <button (click)="callMonkey()" id="error">Monkey</button>
+    <button  class="redBtn" (click)="callMonkey()" id="error">Monkey</button>
     
     </div>
+   
+
+
+
+    <div class="form-group" style="width: 400px; margin:0 auto">
+    <input class="form-control" type="text"  [(ngModel)]="command">
+    <div class="col text-center" style="margin-top: 20px;">
+    <button  class="btn btn-danger" style="width:200px" (click)="callCommand()">Send command</button></div>
 </div>
+
+<div class="form-group" style="width: 400px; margin:0 auto">
+    <input class="form-control" type="text"  [(ngModel)]="torrent">
+    <div class="col text-center" style="margin-top: 20px;">
+    <button  class="btn btn-danger" style="width:200px" (click)="callTorrent()">Download torrent</button></div>
+</div>
+</div>
+
+
 </body>
 <script></script>
