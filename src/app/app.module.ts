@@ -9,11 +9,14 @@ import { LoginComponent } from './components/login/login.component';
 import { StatusComponent } from './components/status/status.component';
 import { FormsModule } from '@angular/forms';
 import { AuthGaurdService } from './services/auth-guard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    StatusComponent
+    StatusComponent,
+
+    
   ],
   imports: [
     BrowserModule,

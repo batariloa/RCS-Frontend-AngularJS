@@ -18,7 +18,7 @@ export class ApiService {
     return this.http.post<{token: string}>(this.urlLocal + '/authenticate', {username: username, password: password})
       .pipe(
         map((result:any) => {
-          console.log(" BLBLLBLBLBLBL " , result.jwtToken)
+
           localStorage.setItem('access_token', result.jwtToken);
           return true;
         })

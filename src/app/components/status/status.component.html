@@ -9,8 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head>
 
     <body>
-<div class="card" style="margin: 0 auto; background-color: gray; height:800px; width:500px;">
-
+<div class="card" style="margin: 0 auto; height:800px; width:500px;">
 
 
 
@@ -21,27 +20,43 @@
 
 </div>
 
-<div style="margin:0 auto">
-    <button  class="redBtn" (click)="callMonkey()" id="error">Monkey</button>
+
+
     
-    </div>
-   
 
-
-
-    <div class="form-group" style="width: 400px; margin:0 auto; margin-bottom: 20px;">
-    <input class="form-control" type="text"  [(ngModel)]="command">
+    <div class="form-group" style="width: 400px; margin:0 auto; margin-bottom: 20px;  ">
+        <label *ngIf="commandShow" for="torrent">Terminal command</label>
+    <input class="form-control "  *ngIf="commandShow"    type="text"  [(ngModel)]="command">
     <div class="col text-center" style="margin-top: 20px;">
-    <button  class="btn btn-danger" style="width:200px" (click)="callCommand()">Send command</button></div>
+        <a  class="button" (click)="callCommand()">Send Command</a>
+</div>
 </div>
 
 <div class="form-group" style="width: 400px; margin:0 auto">
-    <input class="form-control" type="text"  [(ngModel)]="torrent">
+    
+    <label *ngIf="torrentShow" for="torrent">Torrent Magnet URL</label>
+    <input *ngIf="torrentShow" name="torrent"  class="form-control" type="text"  [(ngModel)]="torrent">
     <div class="col text-center" style="margin-top: 20px;">
-    <button  class="btn btn-danger" style="width:200px" (click)="callTorrent()">Download torrent</button></div>
-</div>
+        <a  class="button" (click)="callTorrent()">Add Torrent</a>
+       
+    </div>
+   
 </div>
 
 
+<div class="form-group" style="width: 400px; margin:0 auto">
+  
+    <div class="col text-center" style="margin-top: 20px;">
+        <a  class="button" (click)="callMonkey()">Monkey test!</a>
+    </div>
+   </div>
+</div>
+
+
+
+<div class="form-group" style="width: 400px; margin:0 auto; margin-bottom: 20px;  ">
+
+<button class="btn btn-anim-double-lines">Button 2</button>
+</div>
 </body>
 <script></script>
