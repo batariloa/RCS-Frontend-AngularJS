@@ -15,7 +15,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post<{token: string}>(this.urlLocal + '/authenticate', {username: "admin@gmail.com", password: "123"})
+    return this.http.post<{token: string}>(this.urlLocal + '/authenticate', {username: username, password: password})
       .pipe(
         map((result:any) => {
           console.log(" BLBLLBLBLBLBL " , result.jwtToken)
