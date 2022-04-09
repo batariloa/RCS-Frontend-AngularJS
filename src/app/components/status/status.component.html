@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head>
 
     <body>
-<div class="card" style="margin: 0 auto;  width: 100%;">
+<div class="card" style="margin: 0 auto;  width: 400px;">
 
 
 
@@ -22,7 +22,7 @@
 
     
 
-    <div class="form-group" style="width: 400px; margin:0 auto; margin-bottom: 20px;  ">
+    <div class="form-group" >
         <label *ngIf="commandShow" for="torrent">Terminal command</label>
     <input class="form-control "  *ngIf="commandShow"    type="text"  [(ngModel)]="command">
     <div class="col text-center" style="margin-top: 20px;">
@@ -30,7 +30,7 @@
 </div>
 </div>
 
-<div class="form-group" style="width: 400px; margin:0 auto">
+<div class="form-group" >
     
     <label *ngIf="torrentShow" for="torrent">Torrent Magnet URL</label>
     <input *ngIf="torrentShow" name="torrent"  class="form-control" type="text"  [(ngModel)]="torrent">
@@ -42,13 +42,25 @@
 </div>
 
 
-<div class="form-group" style="width: 400px; margin:0 auto">
+<div class="form-group" >
   
     <div class="col text-center" style="margin-top: 20px;">
         <a  class="button" (click)="callMonkey()">Monkey test!</a>
+
+
+        
     </div>
    </div>
+
+   <ul class="list-inline d-flex justify-content-center">
+    <li class="list-inline-item">Free space: {{diskSpaceUsable}} GB</li>
+    <li class="list-inline-item">Total space: {{diskSpaceTotal}} GB</li>
+
+  </ul>
+ 
+
 </div>
+
 
 
 

@@ -15,6 +15,8 @@ export class StatusComponent implements OnInit {
 command:string = "";
 commandShow = false;
 torrentShow = false;
+diskSpaceTotal:number = 0;
+diskSpaceUsable:number = 0;
 torrent:string = "";
   title = 'RemoteStatus';
   constructor(public api:ApiService, route:ActivatedRoute){
@@ -22,6 +24,8 @@ torrent:string = "";
       console.warn(data)
       this.statusString = data.status
       this.statusDate = data.date
+      this.diskSpaceTotal = data.diskSpaceTotal;
+      this.diskSpaceUsable = data.diskSpaceUsable;
     })
 
   
