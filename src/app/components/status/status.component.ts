@@ -14,7 +14,9 @@ export class StatusComponent implements OnInit {
   statusDate:String = "";
 command:string = "";
 commandShow = false;
+commandSent = false;
 torrentShow = false;
+torrentSent =false;
 diskSpaceTotal:number = 0;
 diskSpaceUsable:number = 0;
 torrent:string = "";
@@ -49,10 +51,11 @@ callMonkey() {
 
 callCommand() {
 
-  if(this.commandShow)
+  if(this.commandShow){
   this.api.callCommand(this.command).subscribe();
-
-
+  this.commandSent = true;
+  }
+  
 
   if(!this.commandShow)
   this.commandShow=true
@@ -62,10 +65,14 @@ callCommand() {
 
 callTorrent() {
 
-  if(this.torrentShow)
+  if(this.torrentShow){
   this.api.callTorrent(this.torrent).subscribe();
+  this.torrentSent = true;
+  }
 
   if(!this.torrentShow)
   this.torrentShow=true
+
+
 }
 }

@@ -25,8 +25,12 @@
     <div class="form-group" >
         <label *ngIf="commandShow" for="torrent">Terminal command</label>
     <input class="form-control "  *ngIf="commandShow"    type="text"  [(ngModel)]="command">
+    <div *ngIf="commandSent" class="alert alert-success" role="alert">
+        Command sent.
+          </div>
     <div class="col text-center" style="margin-top: 20px;">
         <a  class="button" (click)="callCommand()">Send Command</a>
+   
 </div>
 </div>
 
@@ -34,6 +38,9 @@
     
     <label *ngIf="torrentShow" for="torrent">Torrent Magnet URL</label>
     <input *ngIf="torrentShow" name="torrent"  class="form-control" type="text"  [(ngModel)]="torrent">
+    <div *ngIf="torrentSent" class="alert alert-success" role="alert" >
+      Add torrent signal sent.
+          </div>
     <div class="col text-center" style="margin-top: 20px;">
         <a  class="button" (click)="callTorrent()">Add Torrent</a>
        

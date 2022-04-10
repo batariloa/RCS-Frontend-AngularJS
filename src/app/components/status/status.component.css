@@ -94,3 +94,7 @@ a.button2:hover {
 ul.list-inline {
 	text-align: center
   }
+
+  .alert {
+	  margin-top:10px
+  }
