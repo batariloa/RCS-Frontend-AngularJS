@@ -10,12 +10,12 @@ export class ApiService {
   
   public username: string = '';
   public password: string = '';
-  public urlLocal:string = 'http://134.209.133.52:8079/';  
+  public urlLocal:string = 'http://134.209.133.52:8079';  
 
   constructor(private http: HttpClient) {}  
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post<{token: string}>(this.urlLocal + '/authenticate', {username: username, password: password})
+    return this.http.post<string>(this.urlLocal + '/authenticate', {username: username, password: password})
       .pipe(
         map((result:any) => {
           localStorage.setItem("username", username);
