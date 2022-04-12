@@ -19,9 +19,13 @@ torrentShow = false;
 torrentSent =false;
 diskSpaceTotal:number = 0;
 diskSpaceUsable:number = 0;
+ip:string = "";
 torrent:string = "";
   title = 'RemoteStatus';
   constructor(public api:ApiService, route:ActivatedRoute){
+
+    this.ip = localStorage.getItem("ip")!;
+    
     this.api.getStatus().subscribe((data:any) => {
       console.warn(data)
       this.statusString = data.status

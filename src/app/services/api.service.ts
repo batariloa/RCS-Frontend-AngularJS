@@ -10,15 +10,17 @@ export class ApiService {
   
   public username: string = '';
   public password: string = '';
-  public urlLocal:string = 'http://94.189.234.3:8080';  
+  public urlLocal:string = 'http://134.209.133.52:8079/';  
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}  
 
   login(username: string, password: string): Observable<boolean> {
     return this.http.post<{token: string}>(this.urlLocal + '/authenticate', {username: username, password: password})
       .pipe(
         map((result:any) => {
-
+          localStorage.setItem("username", username);
+  
+      
           localStorage.setItem('access_token', result.jwtToken);
           return true;
         })
@@ -37,40 +39,44 @@ export class ApiService {
       return  "Bearer " + localStorage.getItem('access_token');
     }
 
+    getUsername() {
+      return   localStorage.getItem('username');
+    }
+
    getStatus(){
       let url= this.urlLocal + "/getStatus"
 
       return this.http.get(url, { headers: { Authorization:  this.getToken() }})
 
-    }
-
+    } 
 
 
     callShutdown(){
-      let url=this.urlLocal + "/shutdown"
+      let url=this.urlLocal + "/shutdown?username="+this.getUsername();
       console.log("called")
-      return this.http.get(url,{ headers: { Authorization: this.getToken() }});
+      return this.http.post<String>(url,{ headers: { Authorization: this.getToken() }});
 
     }
 
 
     callCommand(cmd:string){
-      let url=this.urlLocal + "/command"
+      let url=this.urlLocal + "/terminal?username="+this.getUsername()+ "&command="+cmd;
       console.log("called cmd")
       return this.http.post<String>(url, cmd, { headers: { Authorization: this.getToken()}});
 
     }
     callMonkey(){
-      let url=this.urlLocal +"/monkey"
-      console.log("called")
-      return this.http.get(url, { headers: { Authorization: this.getToken()}});
+      let url=this.urlLocal +"/monkey?username="+this.getUsername();
+      console.log("called " + url)
+      console.log("token is " + this.getToken());
+      return this.http.post<any>(url, "Requesting monkey.", { headers: { Authorization: this.getToken()}});
 
     }
 
     callTorrent(cmd:string){
       let url=this.urlLocal + "/torrent"
       console.log("torrent")
-      return this.http.post<String>(url, cmd, { headers: { Authorization: this.getToken()}});
+      return this.http.post(url, cmd, { headers: { Authorization: this.getToken()}});
 
     }
   
