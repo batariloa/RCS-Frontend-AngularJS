@@ -44,7 +44,7 @@ export class ApiService {
     }
 
    getStatus(){
-      let url= this.urlLocal + "/getStatus"
+      let url= this.urlLocal + "/status?username="+this.getUsername();
 
       return this.http.get(url, { headers: { Authorization:  this.getToken() }})
 

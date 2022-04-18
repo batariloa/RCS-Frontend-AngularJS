@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { FormsModule } from '@angular/forms';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-status',
@@ -21,19 +22,14 @@ diskSpaceTotal:number = 0;
 diskSpaceUsable:number = 0;
 ip:string = "";
 torrent:string = "";
+
   title = 'RemoteStatus';
   constructor(public api:ApiService, route:ActivatedRoute){
 
-    this.ip = localStorage.getItem("ip")!;
-    
-    this.api.getStatus().subscribe((data:any) => {
-      console.warn(data)
-      this.statusString = data.status
-      this.statusDate = data.date
-      this.diskSpaceTotal = data.diskSpaceTotal;
-      this.diskSpaceUsable = data.diskSpaceUsable;
-    })
-
+    setInterval (()=> {
+     this.callApi();      
+  
+  }, 10000);   
   
  
   }
@@ -77,6 +73,18 @@ callTorrent() {
   if(!this.torrentShow)
   this.torrentShow=true
 
+
+}
+
+callApi(){
+
+  this.api.getStatus().subscribe((data:any) => {
+    console.warn(data)
+    this.statusString = data.status
+    this.statusDate = data.date
+    this.diskSpaceTotal = data.diskSpaceTotal;
+    this.diskSpaceUsable = data.diskSpaceUsable;
+  })
 
 }
 }
