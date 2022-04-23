@@ -83,12 +83,6 @@ export class ApiService {
     }
   
   
-    createBasicAuthToken(username: string, password: string) {
-      return 'Bearer ' + window.btoa(username + ":" + password);
-    }
-    registerSuccessfulLogin(username:string, password:string) {
-     console.log("username je " + username)
-    }
 
 
     register(email:string, password:string) {
