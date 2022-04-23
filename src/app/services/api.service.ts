@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
@@ -10,7 +10,7 @@ export class ApiService {
   
   public username: string = '';
   public password: string = '';
-  public urlLocal:string = 'http://134.209.133.52:8079';  
+  public urlLocal:string = 'http://localhost:8079';  
 
   constructor(private http: HttpClient) {}  
 
@@ -44,7 +44,9 @@ export class ApiService {
     }
 
    getStatus(){
+
       let url= this.urlLocal + "/status?username="+this.getUsername();
+      console.log("Called this " + url)
 
       return this.http.get(url, { headers: { Authorization:  this.getToken() }})
 
@@ -88,6 +90,12 @@ export class ApiService {
      console.log("username je " + username)
     }
 
+
+    register(email:string, password:string) {
+
+      console.log("saljem")
+      return this.http.post(this.urlLocal+"/register", {email: email, password: password});
+    }
 
 
 

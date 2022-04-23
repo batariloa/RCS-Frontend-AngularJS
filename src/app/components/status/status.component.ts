@@ -25,11 +25,12 @@ torrent:string = "";
 
   title = 'RemoteStatus';
   constructor(public api:ApiService, route:ActivatedRoute){
+    
+    setTimeout(()=>{
+      this.callApi()
+    }, 1000)
 
-    setInterval (()=> {
-     this.callApi();      
-  
-  }, 10000);   
+
   
  
   }

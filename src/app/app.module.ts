@@ -9,12 +9,15 @@ import { LoginComponent } from './components/login/login.component';
 import { StatusComponent } from './components/status/status.component';
 import { FormsModule } from '@angular/forms';
 import { AuthGaurdService } from './services/auth-guard.service';
+import { RegisterComponent } from './components/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     StatusComponent,
+    RegisterComponent,
 
     
   ],
@@ -22,6 +25,7 @@ import { AuthGaurdService } from './services/auth-guard.service';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule
     
   ],

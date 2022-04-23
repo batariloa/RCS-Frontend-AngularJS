@@ -1,0 +1,35 @@
+
+      <!-- Login Form -->
+
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+Your email will be considered your username. Don't forget to configure the username in the local service.
+  </div>
+  <div id="formContent">
+ 
+      <form [formGroup]="form" (ngSubmit)="register()">
+        <input formControlName="email" style="margin-top: 30px;" type="text" id="username" class="fadeIn second"  name="username" placeholder="Username">
+        <div *ngIf="form.controls['email'].errors?.['required']">
+         You must enter a valid email address.
+         </div>
+        <input type="password"  formControlName="password" class="fadeIn third" name="password" placeholder="Password">
+        <div *ngIf="form.controls['password'].errors?.['required']">
+         Password must be at least 6 characters long.
+        </div>
+        <input type="password"  formControlName="passwordAgain" class="fadeIn third" name="passwordAgain" placeholder="Repeat your password">
+        <div *ngIf="form.errors?.['mismatch']">
+          You must enter your password again.
+         </div>
+    
+        <input style="margin-bottom: 10px;" type="submit"  class="fadeIn fourth" value="Log In">
+      </form>
+      
+
+      </div>
+      </div>
